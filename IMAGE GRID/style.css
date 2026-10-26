@@ -1,0 +1,199 @@
+/* ==============================
+   General Styles
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   Header
+   ============================== */
+
+.header {
+    text-align: center;
+    padding: 40px 20px 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+
+/* ==============================
+   Image Grid
+   ============================== */
+
+.gallery {
+    width: min(1200px, 92%);
+    margin: 0 auto 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 280px);
+
+    gap: 15px;
+}
+
+
+/* ==============================
+   Gallery Items
+   ============================== */
+
+.gallery-item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #ddd;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ==============================
+   Grid Placement
+   ============================== */
+
+/*
+    Layout:
+
+    ┌───────────────┬───────┬───────┐
+    │               │       │       │
+    │    Image 1    │ Img 2 │ Img 3 │
+    │               │       │       │
+    ├───────┬───────┴───────┴───────┤
+    │ Img 4 │        Image 5         │
+    │       │                         │
+    └───────┴─────────────────────────┘
+                    Image 6
+*/
+
+.item-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.item-2 {
+    grid-column: span 1;
+}
+
+.item-3 {
+    grid-column: span 1;
+}
+
+.item-4 {
+    grid-column: span 1;
+}
+
+.item-5 {
+    grid-column: span 2;
+}
+
+.item-6 {
+    grid-column: span 1;
+}
+
+
+/* ==============================
+   Tablet
+   ============================== */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .item-1 {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .item-2,
+    .item-3,
+    .item-4,
+    .item-5,
+    .item-6 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+
+/* ==============================
+   Mobile
+   ============================== */
+
+@media (max-width: 550px) {
+
+    .header {
+        padding: 30px 15px 20px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        width: 94%;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .item-1,
+    .item-2,
+    .item-3,
+    .item-4,
+    .item-5,
+    .item-6 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+}
+
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+    font-size: 0.9rem;
+}
